@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import csv
 
 st.title("""Alzheimer's Research""" )
 st.header("""Chosen Research Questions""")
@@ -9,3 +10,4 @@ st.info(""" 6)	For each year, we can create a plot of the data by gender, diseas
 st.header("""Choose One:""")
 st.info(""" 7)	Creating a decision tree of the data to discover the non-intuitive relationships between Alzheimer’s disease, the different groups of patients based on their demographic information, and the different health conditions of the patients.""")
 st.info(""" 3)	Predicting how likely it is for individuals with certain underlying conditions to develop Alzheimer’s disease by using association analysis. From the data, it can be calculated how likely it is for someone with Alzheimer’s to also suffer from other health problems. We can compare and contrast how mental health, diet, smoking, drugs and alcohol, obesity, cancer, and diabetes influence the development of Alzheimer’s disease and determine the correlation between them. The association rules that are uncovered can then be visualized. """)
+
