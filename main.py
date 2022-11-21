@@ -13,13 +13,38 @@ st.info("""Choose One:""")
 st.write(""" 7)	Creating a decision tree of the data to discover the non-intuitive relationships between Alzheimer’s disease, the different groups of patients based on their demographic information, and the different health conditions of the patients.""")
 st.write(""" 3)	Predicting how likely it is for individuals with certain underlying conditions to develop Alzheimer’s disease by using association analysis. From the data, it can be calculated how likely it is for someone with Alzheimer’s to also suffer from other health problems. We can compare and contrast how mental health, diet, smoking, drugs and alcohol, obesity, cancer, and diabetes influence the development of Alzheimer’s disease and determine the correlation between them. The association rules that are uncovered can then be visualized. """)
 
-df = pd.read_csv("alz.csv", usecols = ["Class", "Topic", "Question"])
+df = pd.read_csv("alz.csv", usecols = ["Class", "Topic", "Question", "High_Confidence_Limit", "Stratification1"], low_memory=False)
 list1 = []
 topicList =[]
 questionList = []
 classList = (df['Class'].unique())
 topicList = (df['Topic'].unique())
 questionList = (df['Question'].unique())
+overall = []
+fifty64 = []
+sixtyFiveOlder = []
+listAllAgeGroups = []
+listAllHighConfidenceLimit = []
+listAllHighConfidenceLimit = (df["High_Confidence_Limit"])
+listAllAgeGroups = (df["Stratification1"])
+
+# sort list of all high confidence into their respective age group list
+for i in range(len(listAllHighConfidenceLimit)): 
+    if listAllAgeGroups[i] == 'Overall':
+        overall.append(listAllHighConfidenceLimit[i])
+    
+    if listAllAgeGroups[i] == '50-64 years':
+        fifty64.append(listAllHighConfidenceLimit[i])
+        
+    if listAllAgeGroups[i] == '65 years or older':
+        sixtyFiveOlder.append(listAllHighConfidenceLimit[i])
+        
+
+# puts all lists into a dataframe, drops all null values
+df1 = pd.DataFrame(list(zip(overall, fifty64, sixtyFiveOlder)), columns= ['Overall', "50-64", "65 or older"])
+# to do: fix not dropping null values
+df1.dropna()
+print(df1)
 
 col1, col2, col3 = st.columns(3)
 
