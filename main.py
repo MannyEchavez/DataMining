@@ -136,3 +136,5 @@ st.write('4. Plot data frame into bar chart to visualize frequency of generaliza
 
 st.markdown("[Full documentation of Data Preprocessing and Processing](https://docs.google.com/document/d/101nYFZ9dwIG-cV7asKkpjmTcbljEeiMFiReMaUhHtu0/edit?usp=sharing)")
 
+image2 = Image.open('Frequency.png')
+st.image(image2)
