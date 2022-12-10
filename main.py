@@ -137,5 +137,6 @@ st.write('4. Plot data frame into bar chart to visualize frequency of generaliza
 st.markdown("[Full documentation of Data Preprocessing and Processing](https://docs.google.com/document/d/101nYFZ9dwIG-cV7asKkpjmTcbljEeiMFiReMaUhHtu0/edit?usp=sharing)")
 
 
-image1 = Image.open('Frequency.png')
-st.image(image1, caption = 'Frequency Of The Types Of Patients (Outlier Detection)' )
+with col3:
+    st.header("Questions")
+    st.write(questionList)
